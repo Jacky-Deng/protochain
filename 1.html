@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+</head>
+
+<body>
+  <h2>作用域的基本概念</h2>
+</body>
+
+</html>
+<script>
+  /*
+  什么是作用域? --  1. 变量的 作为范围
+    
+  js中___能够创建 作用域? -- 函数
+  js中 有没有 块级作用域? -- 没有
+  变量的查找规则
+    从自己所在的作用开始找  -->找不到
+    往上一级找 ->找不到
+    继续往上 找到全局作用域位置 -->找不到 报错
+      function func1(){
+        function func2(){
+          function func3(){
+            function func4(){
+              console.log(memeda);
+            }
+          }
+        }
+      }
+
+  作用域链?
+    函数能够创建作用域
+    函数中 可以继续声明函数
+    函数能能够创建作用域
+    函数中 可以继续声明函数
+    根据这种关系创建出来的 层层叠叠的 作用域的 链式结构 称之为 作用域链
+
+  词法作用域(静态作用域)
+      js中是 词法作用域
+      函数中 变量的值 是什么 只跟 函数 定义的位置 有关 
+      跟调用的位置 半毛钱关系都没有
+  */
+
+  /* 词法作用域的演示
+    var num = 998;
+    function func() {
+      // 到这里 采取 查找
+      console.log(num);
+    }
+    func();
+
+    function func2() {
+      var num = 123;
+      // 词法作用域(静态作用域)中变量的值 跟函数调用的位置没有关系 只跟定义的位置有关 ,
+      func();
+    }
+
+    func2(); // 998
+  */
+
+  /*
+    var num = 998;
+
+    function func() {
+      console.log(num);
+    }
+
+    function func2() {
+      // 这里修改了 全局中num的值
+      num = 123;
+      func();
+    }
+
+    func2(); // 123
+    */
+</script>
